@@ -1,0 +1,29 @@
+#+title: Readme
+
+* Basic Setup
+1. Download [[https://github.com/hakimel/reveal.js/archive/master.zip][reveal.js]] ,
+2. =mv= to =.local= folder and unzip.
+3. add =custom.css= in =custom= folder.
+
+
+* Emacs
+#+begin_src Elisp
+;; Org-reveal
+(use-package! ox-reveal
+  :config
+  (setq org-reveal-root "/home/USER/.local/revealjs/")
+  (setq org-reveal-theme "white")
+  (add-hook 'org-export-before-processing-hook
+            (lambda (backend)
+              (when (eq backend 'reveal.js)))))
+(setq org-reveal-extra-css "/home/USER/.local/revealjs/custom.css")
+(setq org-reveal-highlight-css "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css")
+;; (setq org-reveal-plugins '(highlight))
+(setq org-export-default-author "SOMEBODY")
+(setq org-reveal-title-slide
+      "<section class='title-slide'>
+           <h1>%t</h1>
+         </section>")
+
+
+#+end_src

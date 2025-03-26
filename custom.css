@@ -1,0 +1,184 @@
+/* Set up a base font size variable for easy customization */
+:root {
+    --base-font-size: 30px; /* Change this value to adjust the overall font size */
+}
+
+/* General Styling */
+.reveal {
+    background-color: #FFF5EF !important;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    font-size: var(--base-font-size); /* Apply the customizable font size */
+}
+
+/* Ensure the .slides container is responsive and aligned to the top-left */
+.reveal .slides {
+    padding: 1rem;           /* Reduced padding for more content space */
+    margin: 0;               /* Remove auto-centering so content sits at top left */
+    width: calc(100% - 1rem);  /* Adjust width to account for the new padding */
+    max-width: 95vw;         /* Ensure it doesn't exceed 95% of the viewport width */
+    max-height: 95vh;        /* Ensure it doesn't exceed 95% of the viewport height */
+    box-sizing: border-box;  /* Include padding in width/height calculations */
+}
+
+/* Override slide content area */
+.reveal .slides section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;    /* Align content to the left */
+    justify-content: flex-start;/* Align content to the top */
+    padding: 0;                 /* Remove internal padding */
+    margin: 0;                  /* Remove internal margins */
+    width: 100%;                /* Use full width of the container */
+    box-sizing: border-box;     /* Include padding in dimensions */
+}
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+}
+
+/* Inline code (for snippets in text) should not be affected */
+.reveal code:not(pre code) {
+    display: inline;
+    background: #fff3cc; /* Subtle inline styling */
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 85%;
+}
+
+
+/* Typography */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+    font-family: 'Moret', serif !important; /* Titles */
+    text-transform: none !important;        /* Remove forced capitalization */
+    text-align: left !important;              /* Align titles to the left */
+    margin: 0;                                /* Remove default margins */
+    margin-bottom: 1rem;                      /* Spacing below titles */
+}
+
+/* General text styling */
+.reveal p,
+.reveal li,
+.reveal blockquote {
+    font-family: 'Poppins', sans-serif !important; /* Regular text */
+    text-align: left !important;                   /* Align text to the left */
+    margin: 0;                                     /* Remove default margins */
+    margin-bottom: 1.5rem;                         /* Spacing below text for readability */
+}
+
+/* Emphasis and Hyperlinks */
+.reveal strong,
+.reveal em,
+.reveal mark {
+    color: #ff7700 !important;  /* Bright orange for emphasis */
+}
+
+.reveal a {
+    color: #ff7700 !important;  /* Hyperlink color */
+}
+
+.reveal a:hover {
+    color: #ff5500 !important;  /* Darker orange on hover */ text-decoration: underline;
+}
+
+/* Keyboard Focus */
+.reveal .focus {
+    outline: 2px solid #ff7700 !important;
+}
+
+/* Fragment Highlights */
+.reveal .fragment.highlight-current-red {
+    color: #ff7700 !important;
+}
+
+/* Text Selection */
+.reveal ::selection {
+    background: #ff7700 !important; /* Orange background */
+    color: white !important;        /* White text */
+}
+
+/* Blob Styling */
+
+/* Bottom-right yellow blob */
+.reveal::after {
+    content: "";
+    position: fixed;
+    bottom: -5%;
+    right: -5%;
+    width: clamp(200px, 25vw, 400px);
+    height: clamp(200px, 25vw, 400px);
+    background-color: #FFC107; /* Yellow */
+    border-radius: 50% 60% 70% 50% / 60% 50% 65% 75%; /* Irregular shape */
+    opacity: 0.8;             /* Slight transparency */
+    z-index: -2;              /* Behind all elements */
+    pointer-events: none;     /* Prevent interactions */
+    animation: moveYellowBlob 12s infinite ease-in-out;
+}
+
+@keyframes moveYellowBlob {
+    0% {
+        transform: scale(1);
+        border-radius: 50% 60% 70% 50% / 60% 50% 65% 75%;
+    }
+    25% {
+        transform: scale(1.1);
+        border-radius: 55% 65% 60% 50% / 50% 60% 70% 55%;
+    }
+    50% {
+        transform: scale(0.9);
+        border-radius: 60% 55% 50% 65% / 55% 70% 60% 50%;
+    }
+    75% {
+        transform: scale(1.05);
+        border-radius: 65% 50% 55% 60% / 60% 50% 65% 70%;
+    }
+    100% {
+        transform: scale(1);
+        border-radius: 50% 60% 70% 50% / 60% 50% 65% 75%;
+    }
+}
+
+/* Top-right pink blob */
+.reveal::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: clamp(300px, 37.5vw, 600px); /* 1.5x the size of the yellow blob */
+    height: clamp(300px, 37.5vw, 600px);
+    background-color: #FFBAB9; /* Pink */
+    border-radius: 60% 50% 45% 55% / 50% 65% 60% 45%; /* Irregular shape */
+    opacity: 0.7;              /* Slight transparency */
+    z-index: -2;               /* Behind all elements */
+    pointer-events: none;
+    animation: movePinkBlob 15s infinite ease-in-out;
+}
+
+@keyframes movePinkBlob {
+    0% {
+        transform: scale(1);
+        border-radius: 60% 50% 45% 55% / 50% 65% 60% 45%;
+    }
+    25% {
+        transform: scale(1.1);
+        border-radius: 65% 55% 50% 45% / 55% 60% 45% 60%;
+    }
+    50% {
+        transform: scale(0.9);
+        border-radius: 50% 60% 65% 50% / 60% 50% 55% 45%;
+    }
+    75% {
+        transform: scale(1.05);
+        border-radius: 55% 60% 50% 45% / 50% 55% 60% 65%;
+    }
+    100% {
+        transform: scale(1);
+        border-radius: 60% 50% 45% 55% / 50% 65% 60% 45%;
+    }
+}
