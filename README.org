@@ -5,6 +5,20 @@
 2. =mv= to =.local= folder and unzip.
 3. add =custom.css= in =custom= folder.
 
+* Fragments
+** blur
+#+begin_src org
+#+ATTR_REVEAL: :frag custom blur
+#+end_src
+
+* Iframe
+1. Install addon in firefox =Ignore X-frame-Options=
+2. Add in =.org= file:
+#+begin_src org
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: data-background-iframe="https://example.com" data-background-interactive="true"
+:END:
+#+end_src
 
 * Emacs
 #+begin_src Elisp
