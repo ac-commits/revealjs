@@ -9,7 +9,7 @@
 If you want to /exclude/ a *table of contents* and add =custom.css= add the following to the header of your =org= file:
 #+begin_src bash
 #+OPTIONS: toc:nil
-#+REVEAL_EXTRA_CSS: /home/alex/.local/revealjs/custom.css
+#+REVEAL_EXTRA_CSS: /home/$USER/.local/revealjs/custom.css
 
 #+end_src
 
