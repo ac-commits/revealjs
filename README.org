@@ -5,6 +5,14 @@
 2. =mv= to =.local= folder and unzip.
 3. add =custom.css= in =custom= folder.
 
+* Options
+If you want to /exclude/ a *table of contents* and add =custom.css= add the following to the header of your =org= file:
+#+begin_src bash
+#+OPTIONS: toc:nil
+#+REVEAL_EXTRA_CSS: /home/alex/.local/revealjs/custom.css
+
+#+end_src
+
 * Fragments
 ** blur
 #+begin_src org
